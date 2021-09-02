@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <!-- Content goes here -->
+    <!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/typography'),
+    ],
+  }
+  ```
+-->
+<div class="relative py-16 bg-white overflow-hidden">
+
+    <div class="relative px-4 sm:px-6 lg:px-8">
+      <div class="text-lg max-w-prose mx-auto">
+        <h1>
+          <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">COVID FAKE TRACKER</span>
+          <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Tracking: <span id="account_name"></span></span>
+        </h1>
+        <p class="mt-8 text-xl text-gray-500 leading-8">Ce site à un seul but et n'aura que cette fonction, vérifie si une personne à envoyer des Tweets avant le 01 Décembre 2019 la première parution du virus dans le monde.</p>
+      </div>
+    </div>
+  </div>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Informations
+      </h3>
+      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+        Personal details and application.
+      </p>
+    </div>
+    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+      <dl class="sm:divide-y sm:divide-gray-200">
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Created At
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            <span id="created_time"></span>
+          </dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Tweet Before Covid Time (2019 December)
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            <span id="tweet_covid"></span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+    
+  </div>
+<!--   
+    <div>
+
+        <div>
+            <h2>CovidFakeTracker</h2>
+            <h4>Checking account: <span id="account_name"></span></h4>
+        </div>
+
+        <div>
+            <p>
+                Date start of covid: <span id="covid_start">2019 Decembre</span>
+            </p>
+            <p>
+                User account Created time: <span id="created_time"></span>
+            </p>
+            <p>
+                Tweet before Covid: <span id="tweet_covid"></span>
+            </p>
+        </div>
+
+    </div> -->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var user = window.sessionStorage.account_name || null;
+
+        function findAndEdit(id, value){
+            document.getElementById(id).innerText = value;
+        }
+
+        async function runCheck() {
+            var config = {
+                method: 'get',
+                url: `http://localhost:3000/user?username=${user}`,
+                headers: {}
+            };
+
+            const _response = await axios(config);
+            const _data = _response.data.data;
+
+            if (_data) {
+                const {created_at,description,name,public_metrics, id} = (_data);
+                findAndEdit("account_name", user)
+                const _date = new Date(Date.parse(created_at))
+
+
+                if(_date.getFullYear() < 2019){
+                    findAndEdit("created_time", _date)
+                } else {
+                    document.getElementById("created_time").style.color = "red"
+                    findAndEdit("created_time", `Après 2019: ${_date}`)
+                }
+
+
+                timeline(id)
+
+            } else {
+                console.log("No account found");
+            }
+        }
+
+
+        async function timeline(user_id){
+            var config = {
+                method: 'get',
+                url: `http://localhost:3000/timeline?id=${user_id}&start_time=${encodeURI("2018-10-01T00:16:05.000Z")}&end_time=${encodeURI("2019-10-01T00:16:05.000Z")}`,
+                headers: {}
+            };
+
+            const _response = await axios(config);
+            const _data = _response.data;
+
+            if (_data.data) {
+                findAndEdit("tweet_covid", "Yes")
+                document.getElementById("tweet_covid").style.color = "green";
+            } else {
+                findAndEdit("tweet_covid", "No tweet before covid ❌")
+                document.getElementById("tweet_covid").style.color = "red";
+                console.log("No account found");
+            }
+
+        }
+
+
+        if (user) {
+            runCheck()
+        }
+
+        console.log(window.sessionStorage);
+    </script>
+</body>
+
+</html>
