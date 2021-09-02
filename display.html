@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <!-- Content goes here -->
     <!--
   This example requires Tailwind CSS v2.0+ 
@@ -30,52 +30,68 @@
   }
   ```
 -->
-<div class="relative py-16 bg-white overflow-hidden">
+    <div class="relative py-16 bg-white overflow-hidden">
 
-    <div class="relative px-4 sm:px-6 lg:px-8">
-      <div class="text-lg max-w-prose mx-auto">
-        <h1>
-          <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">COVID FAKE TRACKER</span>
-          <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Tracking: <span id="account_name"></span></span>
-        </h1>
-        <p class="mt-8 text-xl text-gray-500 leading-8">Ce site à un seul but et n'aura que cette fonction, vérifie si une personne à envoyer des Tweets avant le 01 Décembre 2019 la première parution du virus dans le monde.</p>
+      <div class="relative px-4 sm:px-6 lg:px-8">
+        <div class="text-lg max-w-prose mx-auto">
+          <h1>
+            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">COVID FAKE
+              TRACKER</span>
+            <span
+              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Tracking:
+              <span id="account_name"></span></span>
+          </h1>
+          <p class="mt-8 text-xl text-gray-500 leading-8">This site has a single purpose and will have only this
+            function, verified if a person has sent tweet before 01 December 2019 the first information release of the
+            virus in the world.</p>
+          <br>
+
+
+        </div>
       </div>
     </div>
-  </div>
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Informations
-      </h3>
-      <p class="mt-1 max-w-2xl text-sm text-gray-500">
-        Personal details and application.
-      </p>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Informations
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          Personal details and application.
+        </p>
+      </div>
+      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <dl class="sm:divide-y sm:divide-gray-200">
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Created At
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <span id="created_time"></span>
+            </dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Tweet Before Covid Time (2019 December)
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <span id="tweet_covid"></span>
+            </dd>
+          </div>
+        </dl>
+      </div>
     </div>
-    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-      <dl class="sm:divide-y sm:divide-gray-200">
-        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Created At
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <span id="created_time"></span>
-          </dd>
-        </div>
-        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Tweet Before Covid Time (2019 December)
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <span id="tweet_covid"></span>
-          </dd>
-        </div>
-      </dl>
+
+    <div class="py-10 ">
+      <a class="bg-blue-500 text-white font-bold p-3" id="link_share" target="_blank" href="">
+        Share link to this page</a>
+
+      <a class="bg-black text-white font-bold p-3" id="backbtn" target="_blank" href="">
+        BACK</a>
     </div>
+
   </div>
-    
-  </div>
-<!--   
+  <!--   
     <div>
 
         <div>
@@ -99,76 +115,104 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        var user = window.sessionStorage.account_name || null;
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var _userforurl = (urlParams.get("id")) || null;
 
-        function findAndEdit(id, value){
-            document.getElementById(id).innerText = value;
-        }
+    var user = _userforurl || window.sessionStorage.account_name;
 
-        async function runCheck() {
-            var config = {
-                method: 'get',
-                url: `https://covidfaketracker.herokuapp.com/user?username=${user}`,
-                headers: {}
-            };
+    function findAndEdit(id, value) {
+      document.getElementById(id).innerText = value;
+    }
 
-            const _response = await axios(config);
-            const _data = _response.data.data;
+    async function runCheck() {
+      var config = {
+        method: 'get',
+        url: `https://covidfaketracker.herokuapp.com/user?username=${user}`,
+        headers: {}
+      };
 
-            if (_data) {
-                const {created_at,description,name,public_metrics, id} = (_data);
-                findAndEdit("account_name", user)
-                const _date = new Date(Date.parse(created_at))
+      const _response = await axios(config);
+      const _data = _response.data.data;
 
-
-                if(_date.getFullYear() < 2019){
-                    findAndEdit("created_time", _date)
-                } else {
-                    document.getElementById("created_time").style.color = "red"
-                    findAndEdit("created_time", `Après 2019: ${_date}`)
-                }
-
-
-                timeline(id)
-
-            } else {
-                console.log("No account found");
-            }
-        }
+      if (_data) {
+        const {
+          created_at,
+          description,
+          name,
+          public_metrics,
+          id,
+          username
+        } = (_data);
+        findAndEdit("account_name", user)
+        const _date = new Date(Date.parse(created_at))
 
 
-        async function timeline(user_id){
-            var config = {
-                method: 'get',
-                url: `https://covidfaketracker.herokuapp.com/timeline?id=${user_id}&start_time=${encodeURI("2018-10-01T00:16:05.000Z")}&end_time=${encodeURI("2019-10-01T00:16:05.000Z")}`,
-                headers: {}
-            };
-
-            const _response = await axios(config);
-            const _data = _response.data;
-
-            if (_data.data) {
-                findAndEdit("tweet_covid", "Yes")
-                document.getElementById("tweet_covid").style.color = "green";
-            } else {
-                findAndEdit("tweet_covid", "No tweet before covid ❌")
-                document.getElementById("tweet_covid").style.color = "red";
-                console.log("No account found");
-            }
-
+        if (_date.getFullYear() < 2019) {
+          findAndEdit("created_time", _date)
+        } else {
+          document.getElementById("created_time").style.color = "red"
+          findAndEdit("created_time", `Après 2019: ${_date}`)
         }
 
 
-        if (user) {
-            runCheck()
-        }
+        timeline(id, username)
 
-        console.log(window.sessionStorage);
-    </script>
+      } else {
+        console.log("No account found");
+      }
+    }
+
+
+    async function timeline(user_id, name) {
+      var config = {
+        method: 'get',
+        url: `https://covidfaketracker.herokuapp.com/timeline?id=${user_id}&start_time=${encodeURI("2018-10-01T00:16:05.000Z")}&end_time=${encodeURI("2019-10-01T00:16:05.000Z")}`,
+        headers: {}
+      };
+
+      const _response = await axios(config);
+      const _data = _response.data;
+
+      var _currenturl = (window.location.href);
+
+
+      if (_data.data) {
+        const link_share = document.getElementById("link_share");
+        link_share.href = "https://twitter.com/intent/tweet?text=" + encodeURI(
+          `✅ @${name} have send tweet before the Covid19. ${_currenturl}`)
+
+        findAndEdit("tweet_covid", "Yes")
+        document.getElementById("tweet_covid").style.color = "green";
+      } else {
+
+        const link_share = document.getElementById("link_share");
+        link_share.href = "https://twitter.com/intent/tweet?text=" + encodeURI(
+          `🤔 @${name} no tweet send before covid, go back into facebook please ! ${_currenturl}`)
+
+
+
+        findAndEdit("tweet_covid", "No tweet before covid ❌")
+        document.getElementById("tweet_covid").style.color = "red";
+        console.log("No account found");
+      }
+
+    }
+
+    document.getElementById("backbtn").addEventListener("click", ()=>{
+      window.location = "index.html"
+    })
+
+    if (user) {
+      runCheck()
+    }
+
+    console.log(window.sessionStorage);
+  </script>
 </body>
 
 </html>
