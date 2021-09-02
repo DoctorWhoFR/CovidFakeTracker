@@ -112,7 +112,7 @@
         async function runCheck() {
             var config = {
                 method: 'get',
-                url: `http://localhost:3000/user?username=${user}`,
+                url: `https://covidfaketracker.herokuapp.com/user?username=${user}`,
                 headers: {}
             };
 
@@ -144,7 +144,7 @@
         async function timeline(user_id){
             var config = {
                 method: 'get',
-                url: `http://localhost:3000/timeline?id=${user_id}&start_time=${encodeURI("2018-10-01T00:16:05.000Z")}&end_time=${encodeURI("2019-10-01T00:16:05.000Z")}`,
+                url: `https://covidfaketracker.herokuapp.com/timeline?id=${user_id}&start_time=${encodeURI("2018-10-01T00:16:05.000Z")}&end_time=${encodeURI("2019-10-01T00:16:05.000Z")}`,
                 headers: {}
             };
 
