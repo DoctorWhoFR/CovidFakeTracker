@@ -178,7 +178,7 @@
       const _response = await axios(config);
       const _data = _response.data;
 
-      var _currenturl = (window.location.href);
+      var _currenturl = (window.location.href + `?id=${name}`);
 
 
       if (_data.data) {
